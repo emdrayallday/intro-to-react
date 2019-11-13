@@ -4,6 +4,12 @@
 		"prettier",
 		"prettier/react"
 	],
+	"rules": {
+		"linebreak-style": [
+			"error",
+			"windows"
+		]
+	},
 	"plugins": [
 		"prettier"
 	],
