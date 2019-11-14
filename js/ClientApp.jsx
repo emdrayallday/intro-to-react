@@ -2,22 +2,23 @@
 // Only include code that will be ran
 import React from 'react'
 import { render } from 'react-dom'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import Landing from './Landing'
-import Search from './Search'
+import App from './App'
 
-const FourOhFour = () => <h1>lol what</h1>
-// Parenthesis are not curly braces and ref the return (JSX) so the return is implicit
-const App = () => (
-    <BrowserRouter>
-        <div className='app'>
-            <Switch>
-                <Route exact path="/" component={Landing} />
-                <Route path="/search" component={Search} />
-                <Route component={FourOhFour} />
-            </Switch>
-        </div>
-    </BrowserRouter>
-)
+const renderApp = () => {
+    render(<App />, document.getElementById('app'))
+}
 
-render(<App />, document.getElementById('app'))
+renderApp()
+
+if (module.hot) {
+    module.hot.accept('./App', () => {
+        renderApp()
+    })
+}
+
+/*
+    * This is a webpack thing
+
+    When in development, module.hot will be true. Anytime the app has changed,
+    call the function, rerender the the entire app
+*/

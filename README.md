@@ -64,3 +64,9 @@ Built in with Jest
 ```
 yarn test -- --coverage
 ```
+
+Shows how much coverage is happening with tests, creates coverage folder and able to see details of the tests under the index.html file under coverage
+
+# Hot Module Replacement
+
+Update modules without hard refreshing the browser.
