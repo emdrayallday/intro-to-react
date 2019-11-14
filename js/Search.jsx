@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react'
 import preload from '../data.json'
 import ShowCard from './ShowCard'
@@ -7,23 +8,13 @@ import ShowCard from './ShowCard'
 // react class must 100% have render method, must return markup
 class Search extends Component {
     // boiler plate, that you have to do
-
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            searchTerm: ''
-        }
-
-        this.handleSearchTermChange = this.handleSearchTermChange.bind(this)
-        // do not bind directly on the onChange event
+    state = {
+        searchTerm: ''
     }
-
-    // Another way to bind this is instead use an arrowfunction which does not create a new context
-    // This is dangerous though which uses class properties and not officially in js
-    handleSearchTermChange(event) {
+    handleSearchTermChange = (event: SyntheticKeyboardEvent & { target: HTMLInputElement }) => {
         this.setState({ searchTerm: event.target.value })
     }
+
     render() {
         return (
             <div className='search'>

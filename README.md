@@ -70,3 +70,21 @@ Shows how much coverage is happening with tests, creates coverage folder and abl
 # Hot Module Replacement
 
 Update modules without hard refreshing the browser.
+
+# Flow
+
+more time upfront, but reduces errors and more maintainable in long run
+
+```
+yarn flow init
+```
+easy to integrate, you can opt-in files and do it one module by one
+```
+$ npm i -g flow-typed
+$ flow-typed install
+```
+Created flow directory with all the types for libraries in them, useful
+
+Add eslint config 
+	"plugin:Flowtype/recommended" under extensions
+    and flowtype under plugins

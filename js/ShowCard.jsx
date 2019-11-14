@@ -1,5 +1,5 @@
+// @flow
 import React from 'react'
-import { shape, string } from 'prop-types'
 import styled from 'styled-components'
 
 // Introducing styled components
@@ -18,7 +18,7 @@ const Image = styled.img`
     margin-right: 10px;
 `
 
-const ShowCard = props => (
+const ShowCard = (props: {show: {poster: string, title: string, year: string, description: string}}) => (
     <Wrapper>
         <div className='show-card'>
             <Image alt={`${props.show.title} Show Poster`} src={`/public/img/posters/${props.show.poster}`} />
@@ -31,13 +31,4 @@ const ShowCard = props => (
     </Wrapper>
 )
 
-// Prop Types, not required but fixes lint errors
-ShowCard.propTypes = {
-    show: shape({
-        poster: string.isRequired,
-        title: string.isRequired,
-        year: string.isRequired,
-        description: string.isRequired
-    }).isRequired
-}
 export default ShowCard; 
