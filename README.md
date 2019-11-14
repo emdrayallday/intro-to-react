@@ -40,3 +40,7 @@ exact has to match path exactly, : will make dynamic path
 <Route path="/:language/search" component={Search} >
 ## Switch
 Will only render one component, whatever it matches first
+# key
+need a unique key, don't use index b/c when the array is reordered the index will change.
+
+This is used so react doesn't have to rerender everything, if you sort something it will only move the unique key
