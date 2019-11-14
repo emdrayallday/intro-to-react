@@ -58,3 +58,9 @@ must use es6 class component
 each component is this state or props. You don't have to follow events that provide something. If the state looks like this, it will always look like this
 
 # Jest
+
+## Istanbul
+Built in with Jest
+```
+yarn test -- --coverage
+```
