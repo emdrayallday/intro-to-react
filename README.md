@@ -44,3 +44,13 @@ Will only render one component, whatever it matches first
 need a unique key, don't use index b/c when the array is reordered the index will change.
 
 This is used so react doesn't have to rerender everything, if you sort something it will only move the unique key
+
+# Props
+child gets what it gets, props are immutable
+
+# state
+-- untracked input -- react is not keeping track of state
+
+a component can have it's own state, but only change it's own state.
+
+must use es6 class component
