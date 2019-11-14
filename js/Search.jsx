@@ -7,11 +7,12 @@ import ShowCard from './ShowCard'
 // react class must 100% have render method, must return markup
 class Search extends Component {
     // boiler plate, that you have to do
+
     constructor(props) {
         super(props)
 
         this.state = {
-            searchTerm: 'this is some sort of debug statement'
+            searchTerm: ''
         }
 
         this.handleSearchTermChange = this.handleSearchTermChange.bind(this)
@@ -27,11 +28,13 @@ class Search extends Component {
         return (
             <div className='search'>
                 <header>
-                    <h1>svideo</h1>
+                    <h1>{this.state.searchTerm}</h1>
                     <input onChange={this.handleSearchTermChange} value={this.state.searchTerm} type="text" placeholder="Search" />
                 </header>
                 <div>
-                    {preload.shows.map(show => (<ShowCard key={show.imdbID} show={show} />))}
+                    {preload.shows
+                        .filter(show => `${show.title} ${show.description}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0)
+                        .map(show => (<ShowCard key={show.imdbID} show={show} />))}
                 </div>
             </div>
         )
