@@ -34,5 +34,9 @@ Transforms jsx and es6 to to plain javascript or vanilla js. plus much other thi
 # React Router
 ## Hash Router
 <HashRouter> is a Higher Order component -- It doesn't rende anything itself out, it does routing and then the route will render a component
+## Route
+Takes attributes exact, path, component
+exact has to match path exactly, : will make dynamic path
+<Route path="/:language/search" component={Search} >
 ## Switch
 Will only render one component, whatever it matches first
