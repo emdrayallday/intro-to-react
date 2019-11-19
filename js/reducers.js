@@ -1,14 +1,14 @@
 import {SET_SEARCH_TERM} from './actions'
 
 const DEFAULT_STATE = {
-    searchTerm: ''
+    searchTerm: 'asdf'
 }
 
 const setSearchTerm = (state, action) => {
     // return new state, not modify old one
     // must return new object. 
     // only override searchTerm
-    Object.assign({}, state, {searchTerm: action.payload})
+    return Object.assign({}, state, {searchTerm: action.payload})
 }
 
 const rootReducer = (state = DEFAULT_STATE, action) => {
