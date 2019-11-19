@@ -1,23 +1,16 @@
+// @flow
+
+import { combineReducers } from 'redux';
 import {SET_SEARCH_TERM} from './actions'
 
-const DEFAULT_STATE = {
-    searchTerm: 'asdf'
-}
 
-const setSearchTerm = (state, action) => {
-    // return new state, not modify old one
-    // must return new object. 
-    // only override searchTerm
-    return Object.assign({}, state, {searchTerm: action.payload})
-}
-
-const rootReducer = (state = DEFAULT_STATE, action) => {
-    switch (action.type) {
-        case SET_SEARCH_TERM:
-            return setSearchTerm(state, action)
-        default:
-            return state;
+const searchTerm = (state='', action: Action) => {
+    if (action.type === SET_SEARCH_TERM) {
+        return action.payload
     }
+    return state
 }
+
+const rootReducer = combineReducers({searchTerm})
 
 export default rootReducer
