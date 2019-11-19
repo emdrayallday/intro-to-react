@@ -1,8 +1,7 @@
 // @flow
 import React, { Component } from 'react'
-import preload from '../data.json'
 import ShowCard from './ShowCard'
-
+import Header from './Header'
 
 
 // react class must 100% have render method, must return markup
@@ -11,6 +10,12 @@ class Search extends Component {
     state = {
         searchTerm: ''
     }
+
+    // NEED A COLON
+    props: {
+        shows: Array<Show>
+    }
+
     handleSearchTermChange = (event: SyntheticKeyboardEvent & { target: HTMLInputElement }) => {
         this.setState({ searchTerm: event.target.value })
     }
@@ -18,12 +23,10 @@ class Search extends Component {
     render() {
         return (
             <div className='search'>
-                <header>
-                    <h1>{this.state.searchTerm}</h1>
-                    <input onChange={this.handleSearchTermChange} value={this.state.searchTerm} type="text" placeholder="Search" />
-                </header>
+            <Header searchTerm={this.state.searchTerm} showSearch handleSearchTermChange={this.handleSearchTermChange} />
+
                 <div>
-                    {preload.shows
+                    {this.props.shows
                         .filter(show => `${show.title} ${show.description}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0)
                         .map(show => (<ShowCard key={show.imdbID} show={show} />))}
                 </div>
