@@ -21,7 +21,7 @@ const Image = styled.img`
 `
 class ShowCard extends Component {
     shouldComponentUpdate() {
-        return false\
+        return false
         // never update this component b/c it's static
         /**
             to only update a certain prop you can return
