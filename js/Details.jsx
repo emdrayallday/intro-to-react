@@ -2,7 +2,7 @@
 
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {getAPIData} from './actionCreators'
+import {getAPIDetails} from './actionCreators'
 import Header from './Header'
 import Spinner from './Spinner'
 
@@ -55,4 +55,10 @@ const mapStateToProps = (state, ownProps) => {
         rating: apiData.rating
     }
 }
-export default connect(mapStateToProps)(Details)
+
+const mapDispatchToProps = (dispatch: Function, ownProps) => ({
+    getAPIData() {
+        dispatch(getAPIDetails(ownProps.show.imdbID))
+    }
+})
+export default connect(mapStateToProps, mapDispatchToProps)(Details)
